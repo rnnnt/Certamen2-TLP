@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+  <h1>Lista de Proyectos</h1>
+  <ul>
+    {% for proyecto in proyectos %}
+      <li>{{ proyecto.titulo }} - <a href="{% url 'patrocinar_proyecto' proyecto.pk %}">Patrocinar</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

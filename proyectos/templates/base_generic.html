@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Universidad{% endblock %}</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Inicio</h2>
+        <ul>
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+            <li><a href="{% url 'nuevo_proyecto' %}">Nuevo Proyecto</a></li>
+            <li><a href="{% url 'lista_proyectos' %}">Proyectos</a></li>
+
+
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'exit' %}">salir</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Ingresar</a></li>
+            {% endif %}
+        </ul>
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+  <h1>Proyectos Patrocinados</h1>
+  <ul>
+    {% for proyecto in proyectos %}
+      <li>{{ proyecto.titulo }} - Patrocinado por {{ proyecto.profesor.user.username }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
